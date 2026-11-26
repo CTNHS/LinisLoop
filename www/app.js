@@ -283,6 +283,11 @@ function render() {
   $("#profileTag").textContent = u.guest ? "Guest profile" : "@" + data.session;
   if (document.activeElement !== $("#displayName")) $("#displayName").value = myName();
   $("#profileBtn").textContent = (myName()[0] || "R").toUpperCase();
+  $("#heroGreeting").textContent = "WELCOME BACK, " + myName().toUpperCase();
+  const nextEvent = [...data.events].filter(e => new Date(e.date) >= new Date()).sort((a,b)=>new Date(a.date)-new Date(b.date))[0];
+  $("#dailyNudge").textContent = nextEvent
+    ? `Next up: ${nextEvent.name} · ${new Date(nextEvent.date).toLocaleDateString([], {month:"short",day:"numeric"})}. Join in and bring a friend.`
+    : "Spot a waste concern? Take a clear photo and tell the community where help is needed.";
 
   const recent = [...data.reports].slice(-3).reverse();
   $("#recentActivity").innerHTML = recent.length ? recent.map(r => `
@@ -292,7 +297,13 @@ function render() {
       <p>${escapeHTML(r.location)} · ${escapeHTML(r.description)}</p></div>
     </article>`).join("") : '<div class="empty">No activity yet. Start by submitting a waste report.</div>';
 
-  $("#reportList").innerHTML = data.reports.length ? [...data.reports].reverse().map(r => `
+  const searchTerm = ($("#reportSearch")?.value || "").trim().toLowerCase();
+  const filterStatus = $("#reportFilter")?.value || "all";
+  const visibleReports = [...data.reports].reverse().filter(r =>
+    (filterStatus === "all" || r.status === filterStatus) &&
+    (!searchTerm || [r.type,r.location,r.description,ownerName(r.owner)].some(v => String(v).toLowerCase().includes(searchTerm)))
+  );
+  $("#reportList").innerHTML = visibleReports.length ? visibleReports.map(r => `
     <article class="report-card">
       <div class="report-top"><strong>${escapeHTML(r.type)}</strong>${status(r.status)}</div>
       ${hasPhoto(r) ? `<div class="rphoto-wrap"><img class="rphoto" data-rid="${r.id}" alt="Photo attached to report" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>` : ""}
@@ -693,8 +704,24 @@ go = function (t) {
 };
 
 $$(".learn-card").forEach((c, i) => {
-  c.classList.add("c" + i); c.tabIndex = 0; c.onclick = () => c.classList.toggle("open");
-  c.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); c.click(); } };
+  c.classList.add("c" + i); c.tabIndex = 0;
+  const toggle = () => { const open = c.classList.toggle("open"); c.setAttribute("aria-expanded", String(open)); };
+  c.onclick = toggle;
+  c.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } };
+});
+["reportSearch","reportFilter"].forEach(id => {
+  const el = $("#" + id);
+  if (el) el.addEventListener(id === "reportSearch" ? "input" : "change", () => {
+    const list = $("#reportList");
+    const searchTerm = ($("#reportSearch").value || "").trim().toLowerCase();
+    const status = $("#reportFilter").value;
+    const filtered = [...data.reports].reverse().filter(r =>
+      (status === "all" || r.status === status) &&
+      (!searchTerm || [r.type,r.location,r.description,ownerName(r.owner)].some(v => String(v).toLowerCase().includes(searchTerm)))
+    );
+    // Re-render through the canonical renderer so photos and actions remain intact.
+    render();
+  });
 });
 $$(".panel.spaced").forEach(p => {
   const h = p.querySelector(":scope>h3"); if (!h) return;

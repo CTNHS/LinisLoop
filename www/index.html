@@ -89,39 +89,45 @@
 
     <!-- HOME -->
     <section id="page-home" class="page active">
-      <section class="welcome-card">
-        <i class="leaf" style="left:6%">🍃</i><i class="leaf" style="left:44%;animation-delay:-3s">🌿</i><i class="leaf" style="left:90%;animation-delay:-6s">🍂</i>
-        <div>
-          <p class="eyebrow">TOGETHER FOR A CLEANER COMMUNITY</p>
-          <h1>Small actions.<br><em>Cleaner communities.</em></h1>
-          <p class="muted">Turn local waste concerns into organized community action.</p>
-          <div class="btn-row">
-            <button class="primary mint" data-go="reports" data-camera="1">📸 Report with camera</button>
-            <button class="ghost-light" data-go="reports">Write a report</button>
-          </div>
+      <section class="volunteer-hero">
+        <img class="volunteer-bg" src="assets/cleanup-hero.png" alt="Volunteers collecting litter together on a beach">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <span class="hero-overline"><span class="live-dot"></span> SMALL ACTIONS. BIGGER CHANGE.</span>
+          <p class="hero-greeting" id="heroGreeting">WELCOME BACK, ECO CHAMPION</p>
+          <h1>Ready to make<br>an <em>impact?</em></h1>
+          <p class="hero-description">Pick up litter. Capture the moment. Inspire your community. Every clean action counts.</p>
+          <button class="hero-start" data-go="reports" data-camera="1"><span class="play-mark">▶</span><span>Start a CleanUp<small>Take a photo · Earn EcoPoints</small></span><span class="hero-arrow">↗</span></button>
+          <button class="hero-record" data-go="reports">Already cleaned up? <u>Submit your report</u></button>
         </div>
-        <div class="welcome-photo-wrap">
-          <img class="welcome-photo" src="assets/cleanup.jpg" alt="Illustration of students collecting litter in a park">
-          <span class="photo-caption">Community cleanup · illustration</span>
-        </div>
+        <div class="hero-photo-credit">LINISLOOP COMMUNITY ACTION</div>
+      </section>
+      <section class="reward-ribbon">
+        <div class="reward-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.3 5 5.5.7-4 3.8 1 5.5-4.8-2.7-4.8 2.7 1-5.5-4-3.8 5.5-.7z"/></svg></div>
+        <div class="reward-copy"><strong>Your effort deserves recognition.</strong><span>Upload a photo of collected litter with your report to earn <b>10 EcoPoints</b>.</span></div>
+        <button class="reward-cta" data-go="profile">My points <span>↗</span></button>
       </section>
 
-      <div class="section-head"><div><p class="eyebrow">COMMUNITY SNAPSHOT</p><h2>Your impact at a glance</h2></div><span class="tag">Pilot community</span></div>
+      <div class="section-head"><div><p class="eyebrow">COMMUNITY SNAPSHOT</p><h2>Your impact at a glance</h2></div><span class="tag live-tag"><i></i> LIVE LOCAL SNAPSHOT</span></div>
       <div class="stats">
         <article class="stat"><span>Reports submitted</span><strong id="statReports">0</strong><small>Community concerns</small></article>
         <article class="stat"><span>Cleanup events</span><strong id="statEvents">0</strong><small>Organized activities</small></article>
         <article class="stat"><span>Volunteer actions</span><strong id="statVolunteers">0</strong><small>Registrations recorded</small></article>
       </div>
 
-      <div class="section-head"><div><p class="eyebrow">TAKE ACTION</p><h2>Make a difference today</h2></div></div>
+      <section class="home-momentum">
+        <div class="momentum-copy"><span class="momentum-kicker">YOUR NEXT GOOD MOVE</span><h3>See litter? Be the reason it disappears.</h3><p id="dailyNudge">Take a before or after photo, add the location, and share your cleanup with the community.</p><button class="nudge-link" data-go="reports" data-camera="1">Report a cleanup <span>↗</span></button></div>
+        <div class="impact-stamp" aria-hidden="true"><span>ACT</span><b>WITH<br>IMPACT</b><i>✳</i></div>
+      </section>
+      <div class="section-head"><div><p class="eyebrow">TAKE ACTION</p><h2>Choose your next move</h2></div></div>
       <div class="action-grid">
-        <button class="action-card" data-go="reports" data-camera="1"><b class="action-icon">📸</b><strong>Report waste</strong><small>Snap a waste hotspot</small></button>
-        <button class="action-card" data-go="events"><b class="action-icon">🧤</b><strong>Join a cleanup</strong><small>Find a local activity</small></button>
-        <button class="action-card" data-go="learn"><b class="action-icon">🌿</b><strong>Learn to sort</strong><small>Waste segregation</small></button>
-        <button class="action-card" data-go="profile"><b class="action-icon">🏅</b><strong>My eco impact</strong><small>See your contribution</small></button>
+        <button class="action-card" data-go="reports" data-camera="1"><b class="action-icon"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></b><strong>Report waste</strong><small>Snap a waste hotspot</small></button>
+        <button class="action-card" data-go="events"><b class="action-icon"><svg viewBox="0 0 24 24"><path d="M7 12V5a1.5 1.5 0 013 0v5-7a1.5 1.5 0 013 0v7-5a1.5 1.5 0 013 0v7-3a1.5 1.5 0 013 0v6c0 4-2.5 7-7 7h-1c-2 0-3.5-1-4.5-2.5L3 14a1.8 1.8 0 013-2z"/></svg></b><strong>Join a cleanup</strong><small>Find a local activity</small></button>
+        <button class="action-card" data-go="learn"><b class="action-icon"><svg viewBox="0 0 24 24"><path d="M20 4C10 4 5 8 5 14a6 6 0 006 6c6 0 9-6 9-16zM4 21c3-5 6-8 11-11"/></svg></b><strong>Learn to sort</strong><small>Waste segregation</small></button>
+        <button class="action-card" data-go="profile"><b class="action-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M8 12l-1 9 5-3 5 3-1-9"/></svg></b><strong>My eco impact</strong><small>See your contribution</small></button>
       </div>
 
-      <div class="section-head"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Community updates</h2></div><button class="text-btn" data-go="reports">View all</button></div>
+      <div class="section-head"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Community updates</h2></div><button class="text-btn" data-go="reports">View all ↗</button></div>
       <div id="recentActivity" class="stack"></div>
     </section>
 
@@ -129,10 +135,11 @@
     <section id="page-reports" class="page">
       <div class="section-head"><div><p class="eyebrow">WASTE WATCH</p><h2>Community reports</h2><p class="muted">Take or upload a photo, describe the concern, and follow its review status.</p></div></div>
       <form id="reportForm" class="panel form-grid" novalidate>
-        <h3>Submit a waste report</h3>
+        <h3>Share your cleanup</h3>
+        <p class="reward-hint"><strong>Earn 10 EcoPoints</strong> when you upload a photo with your report. Reports without a photo earn 2 points.</p>
 
         <div class="photo-field">
-          <span class="label">Photo evidence <em>(optional)</em></span>
+          <span class="label">Cleanup photo <em>(recommended for 10 EcoPoints)</em></span>
           <div id="photoPreview" class="photo-preview" hidden>
             <img id="photoPreviewImg" alt="Selected photo preview">
             <button type="button" id="photoRemove" class="chip-x" aria-label="Remove photo">✕</button>
@@ -167,6 +174,7 @@
       </form>
 
       <div class="section-head"><h3>Submitted reports</h3><span class="tag" id="reportCount">0 total</span></div>
+      <div class="report-tools"><label class="search-field"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="reportSearch" type="search" placeholder="Search reports or locations…" aria-label="Search reports"></label><select id="reportFilter" aria-label="Filter reports"><option value="all">All statuses</option><option>Pending</option><option>Approved</option><option>Resolved</option></select></div>
       <div id="reportList" class="stack"></div>
     </section>
 
@@ -191,10 +199,10 @@
     <section id="page-learn" class="page">
       <div class="section-head"><div><p class="eyebrow">ECOGUIDE</p><h2>Know your waste</h2><p class="muted">Simple reminders for safer waste segregation.</p></div></div>
       <div class="learn-grid">
-        <article class="learn-card"><div class="learn-emoji">🍂</div><h3>Biodegradable</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Food scraps, fruit peels, leaves and other organic materials. Follow local composting guidance.</p></div></article>
-        <article class="learn-card"><div class="learn-emoji">♻️</div><h3>Recyclable</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Clean paper, cardboard, glass and accepted plastics. Keep materials dry and check local collection rules.</p></div></article>
-        <article class="learn-card"><div class="learn-emoji">🗑️</div><h3>Residual waste</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Items that cannot be composted or accepted for recycling under local collection rules.</p></div></article>
-        <article class="learn-card"><div class="learn-emoji">⚠️</div><h3>Special / hazardous</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Batteries, chemicals, e-waste and sharps need separate handling. Never mix them with ordinary household waste.</p></div></article>
+        <article class="learn-card" role="button" aria-expanded="false"><div class="learn-emoji">🍂</div><h3>Biodegradable</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Food scraps, fruit peels, leaves and other organic materials. Follow local composting guidance.</p></div></article>
+        <article class="learn-card" role="button" aria-expanded="false"><div class="learn-emoji">♻️</div><h3>Recyclable</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Clean paper, cardboard, glass and accepted plastics. Keep materials dry and check local collection rules.</p></div></article>
+        <article class="learn-card" role="button" aria-expanded="false"><div class="learn-emoji">🗑️</div><h3>Residual waste</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Items that cannot be composted or accepted for recycling under local collection rules.</p></div></article>
+        <article class="learn-card" role="button" aria-expanded="false"><div class="learn-emoji">⚠️</div><h3>Special / hazardous</h3><span class="tap">Tap to learn more ▾</span><div class="more"><p>Batteries, chemicals, e-waste and sharps need separate handling. Never mix them with ordinary household waste.</p></div></article>
       </div>
       <div class="panel spaced" id="quizBox"></div>
     </section>
@@ -202,9 +210,10 @@
     <!-- PROFILE -->
     <section id="page-profile" class="page">
       <div class="section-head"><div><p class="eyebrow">YOUR CONTRIBUTION</p><h2>My eco profile</h2></div></div>
-      <div class="profile-card"><div class="big-avatar">🌱</div><div><h2 id="profileName">Community Member</h2><p class="muted" id="profileLevel">LinisLoop participant</p><span class="tag" id="profileTag">Local profile</span></div></div>
+      <div class="profile-card"><div class="big-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/></svg></div><div><h2 id="profileName">Community Member</h2><p class="muted" id="profileLevel">LinisLoop participant</p><span class="tag" id="profileTag">Local profile</span></div></div>
       <div class="points-card"><div class="ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="52"/><circle class="ring-fg" id="ringFg" cx="60" cy="60" r="52"/></svg><div class="ring-num"><strong id="myPoints">0</strong><small>ECOPOINTS</small></div></div>
         <div class="pc-info"><div class="pc-level" id="pcLevel">Seedling 🌱</div><div class="bar"><i id="pcBar"></i></div><small id="pcNext"></small></div></div>
+      <p class="points-explainer" id="pointsRewardNote">Earn 10 points for each cleanup report with a photo, or 2 points without a photo. Demo points are stored on this device.</p>
       <div class="badges" id="badges"></div>
       <div class="stats two">
         <article class="stat"><span>My reports</span><strong id="myReports">0</strong><small>On this device</small></article>

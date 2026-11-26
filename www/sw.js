@@ -1,5 +1,5 @@
 // LinisLoop service worker: network-first (always fresh when online), cached fallback offline.
-const CACHE = "linisloop-cache-v3";
+const CACHE = "linisloop-cache-v4";
 const CORE = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest",
   "./assets/icon.svg", "./assets/icon-192.png", "./assets/icon-512.png",
   "./assets/camp-tinio-logo.png", "./assets/cleanup.jpg"];
