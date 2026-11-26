@@ -1,0 +1,7 @@
+{
+  "appId": "ph.linisloop.app",
+  "appName": "LinisLoop",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}
